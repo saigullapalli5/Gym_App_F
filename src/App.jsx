@@ -40,6 +40,7 @@ import EditPlan from "./pages/Admin/EditPlan";
 // import PlanFullDetail from './pages/User/planFullDetail';
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/auth";
+import ApiTest from "./components/ApiTest";
 // import axios from 'axios';
 
 const App = () => {
@@ -54,18 +55,31 @@ const App = () => {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/admin/*" element={<Navigate to="/dashboard/admin" replace />} />
+          <Route
+            path="/admin/*"
+            element={<Navigate to="/dashboard/admin" replace />}
+          />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/api-test" element={<ApiTest />} />
           {/* Public exercise routes */}
-          <Route path="/exercise/preview/:id" element={<ExerciseDetail previewMode={true} />} />
+          <Route
+            path="/exercise/preview/:id"
+            element={<ExerciseDetail previewMode={true} />}
+          />
           <Route path="/exercise/:id" element={<ExerciseDetail />} />
-          
+
           {/* Redirect old routes to new dashboard paths */}
-          <Route path="/feedback" element={<Navigate to="/dashboard/user/feedback" replace />} />
-          <Route path="/exercise" element={<Navigate to="/dashboard/user/exercise" replace />} />
-          
+          <Route
+            path="/feedback"
+            element={<Navigate to="/dashboard/user/feedback" replace />}
+          />
+          <Route
+            path="/exercise"
+            element={<Navigate to="/dashboard/user/exercise" replace />}
+          />
+
           {/* Protected User Routes */}
           <Route element={<PrivateRoute />}>
             {/* Dashboard Routes */}
@@ -76,11 +90,23 @@ const App = () => {
                 <Route path="profile" element={<Profile />} />
                 <Route path="exercise" element={<Exercise />} />
                 <Route path="exercise/:id" element={<ExerciseDetail />} />
-                <Route path="favourite-exercises" element={<FavouriteExercises />} />
+                <Route
+                  path="favourite-exercises"
+                  element={<FavouriteExercises />}
+                />
                 <Route path="plan-detail" element={<PlanDetail />} />
-                <Route path="plan-detail-full/:planid" element={<PlanFullDetail />} />
-                <Route path="plan-subscribe/:planid" element={<PlanSubscription />} />
-                <Route path="plan-details/:planid" element={<PlanFullDetail />} />
+                <Route
+                  path="plan-detail-full/:planid"
+                  element={<PlanFullDetail />}
+                />
+                <Route
+                  path="plan-subscribe/:planid"
+                  element={<PlanSubscription />}
+                />
+                <Route
+                  path="plan-details/:planid"
+                  element={<PlanFullDetail />}
+                />
                 <Route path="trainer/:trainerId" element={<TrainerDetails />} />
                 <Route path="feedback" element={<Feedback />} />
                 <Route path="feedbacks" element={<Feedbacks />} />
